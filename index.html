@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Athrv Sharma – Stunning Minimal Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bgd"></canvas>
+
+  <nav class="topbar">
+    <span class="logo">Athrv Sharma</span>
+    <div class="nav-links">
+      <a href="#about" class="nav-link">About Me</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#talk" class="nav-link">Let's Talk</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="hero" class="hero fade-up">
+      <div class="hero-content">
+        <h1 class="hero-title">Hello, I'm Athrv Sharma</h1>
+       
+
+        <button class="btn btn-primary hero-btn">
+          <span>Explore My Work</span>
+          <div class="btn-wave"></div>
+        </button>
+      </div>
+    </section>
+
+    <section id="about" class="section fade-up">
+      <canvas class="section-canvas"></canvas>
+      <div class="section-content">
+        <h2>About Me</h2>
+        <p>Creative technologist and full-stack architect.<br />Crafting experiences with precision and vision.<br /><span class="highlight">20+ years of relentless innovation.</span></p>
+        <div class="skills">
+          <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Three.js</span><span>GSAP</span><span>UI/UX</span><span>Creative Coding</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section fade-up">
+      <canvas class="section-canvas"></canvas>
+      <div class="section-content">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>Orbit UI</h3>
+            <p>Interactive 3D mesh with stunning minimal interface.</p>
+            <div class="tech">Three.js | GSAP | WebGL</div>
+            <button class="btn btn-primary btn-sm">
+              <span>View Project</span>
+              <div class="btn-wave"></div>
+            </button>
+          </article>
+          <article class="project-card">
+            <h3>Gallery Grid</h3>
+            <p>Monochrome gallery with Apple-inspired interactions.</p>
+            <div class="tech">CSS Grid | Animation</div>
+            <button class="btn btn-primary btn-sm">
+              <span>View Project</span>
+              <div class="btn-wave"></div>
+            </button>
+          </article>
+          <article class="project-card center">
+            <h3>Motion Kit</h3>
+            <p>Smooth scroll and hover animations for premium UX.</p>
+            <div class="tech">GSAP | Vanilla JS</div>
+            <button class="btn btn-primary btn-sm">
+              <span>View Project</span>
+              <div class="btn-wave"></div>
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="talk" class="section fade-up">
+      <canvas class="section-canvas"></canvas>
+      <div class="section-content">
+        <h2>Let's Talk</h2>
+        <form class="contact-form">
+          <input type="text" placeholder="Your name" required />
+          <input type="email" placeholder="Email" required />
+          <textarea rows="4" placeholder="Your message" required></textarea>
+          <button class="btn btn-primary btn-lg contact-btn">
+            <span>Send Message</span>
+            <div class="btn-wave"></div>
+          </button>
+        </form>
+        <p class="contact-info">Or reach out directly at <a href="mailto:test@email.com">test@email.com</a></p>
+        <div class="socials">
+          <a href="#" class="social-link" aria-label="GitHub">🐙</a>
+          <a href="#" class="social-link" aria-label="Email">📧</a>
+          <a href="#" class="social-link" aria-label="LinkedIn">🔗</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2025 Athrv Sharma. Crafted with precision.</p>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/ScrollToPlugin.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
