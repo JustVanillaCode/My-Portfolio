@@ -1,0 +1,400 @@
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --gray: #1c1c1e;
+  --gray-light: #2c2c2e;
+  --color-primary: #3596ec;
+  --color-secondary: #34c759;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+#bgd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+/* Navbar */
+nav.topbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 900px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+  z-index: 100;
+  transition: background 0.3s ease;
+}
+nav.topbar:hover {
+  background: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.9);
+  transform: translateX(-50%) translateY(-5px);
+}
+nav.topbar .logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--white);
+}
+nav.topbar .nav-links {
+  display: flex;
+  gap: 2rem;
+}
+nav.topbar .nav-link {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 14px;
+  border-radius: 20px;
+  transition: background 0.3s, transform 0.3s;
+  user-select: none;
+}
+nav.topbar .nav-link:hover {
+  background: rgba(0,122,255,0.15);
+  transform: translateY(-3px);
+}
+nav.topbar .nav-link:active {
+  transform: translateY(0);
+}
+
+/* Layout */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  position: relative;
+  margin-bottom: 4rem;
+  background: var(--gray);
+  border-radius: 30px;
+  padding: 5rem 3rem;
+  box-shadow:
+    inset 10px 0 50px rgba(0,122,255,0.1),
+    inset -10px 0 50px rgba(52,199,89,0.1),
+    0 4px 40px rgba(0,0,0,0.9);
+  overflow: hidden;
+  color: #fff;
+}
+.section .section-canvas {
+  position: absolute;
+  top: -44%;
+  left: -42%;
+  z-index: 0;
+  opacity: 0.13;
+  pointer-events: none;
+  width: 150%;
+  height: 150%;
+}
+.section .section-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-bottom: 6rem;
+  text-align: center;
+}
+.hero-content {
+  max-width: 750px;
+}
+.hero-title {
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  background: linear-gradient(145deg, #eee, #bbb);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+}
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  color: rgba(255,255,255,0.9);
+  user-select: none;
+}
+
+/* Button */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 32px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.9rem 2.4rem;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+  box-shadow: 0 6px 12px rgba(0,122,255,0.6);
+  border: none;
+  transition: all 0.3s ease;
+}
+.btn-primary {
+  background: var(--color-primary);
+  color: #fff;
+  box-shadow: 0 2px 20px rgba(60,140,255,0.22);
+}
+.btn-primary:hover {
+  background: #50affb;
+  box-shadow: 0 4px 34px rgba(20,130,255,0.21);
+}
+.btn-primary:active {
+  filter: brightness(1);
+  transform: translateY(0);
+}
+.btn-secondary {
+  background: #228B22;
+  color: #fff;
+}
+.btn-secondary:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 8px 40px rgba(34,139,34,0.8);
+  transform: translateY(-3px);
+}
+.btn-secondary:active {
+  filter: brightness(1);
+  transform: translateY(0);
+}
+.btn-sm {
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+}
+.btn-lg {
+  font-size: 1.25rem;
+  padding: 1.2rem 3.2rem;
+}
+
+/* Button wave */
+.btn-wave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  opacity: 0;
+}
+.btn:hover .btn-wave {
+  width: 200%;
+  height: 300%;
+  opacity: 1;
+  animation: ripple 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.4);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2);
+  }
+}
+
+/* Projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+.project-card {
+  background: linear-gradient(145deg, #212122, #121213);
+  border-radius: 28px;
+  padding: 3rem;
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.05),
+    0 8px 40px rgba(0, 122, 255, 0.6);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card.center {
+  justify-self: center;
+}
+.project-card:hover {
+  transform: translateY(-7px);
+  box-shadow:
+    inset 0 0 25px rgba(255, 255, 255, 0.1),
+    0 12px 60px rgba(0, 122, 255, 0.9);
+}
+.project-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.7rem;
+}
+.project-card p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+}
+.project-card .tech {
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+.project-card button {
+  margin-top: auto;
+  padding: 0.9rem 3rem;
+}
+
+/* Contact Form */
+.contact-form {
+  max-width: 450px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 0.9rem 1.2rem;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 1rem;
+  resize: vertical;
+  outline-offset: 2px;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(0,122,255,0.3);
+  outline: none;
+}
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.social-link {
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 25px;
+  user-select: none;
+  transition: background 0.3s ease, color 0.3s ease;
+  background: rgba(255,255,255,0.1);
+}
+.social-link:hover {
+  background: #007AFF;
+  color: #fff;
+}
+
+/* Footer */
+footer.footer {
+  padding: 3rem 0;
+  text-align: center;
+  user-select: none;
+  color: #999;
+}
+
+/* Animations */
+.fade-up {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav.topbar {
+    width: 95%;
+  }
+  nav.topbar .nav-links {
+    gap: 1rem;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .socials {
+    flex-direction: column;
+  }
+}
+/* Perfectly center the last (third) project if odd number */
+.projects-grid > .project-card.center {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+.hero-box {
+  display: inline-block;
+  margin-top: 2rem;
+  margin-bottom: 2.4rem;
+  padding: 1.2rem 2.2rem;
+  background: rgba(20, 22, 30, 0.3);
+  /* Removed border */
+  border-radius: 1.6rem;
+  box-shadow: 0 3px 24px 0 rgba(0, 0, 0, 0.11);
+  backdrop-filter: blur(12px);
+}
+/* Add this or increase this for your section headings */
+.section-content h2 {
+  margin-bottom: 3.2rem;  /* or whatever spacing you prefer, e.g. 2.5rem, 4rem */
+}
+.hero-btn {
+  margin-top: 2.6rem; /* or adjust as needed for your preferred spacing */
+}
+
