@@ -160,3 +160,77 @@ gsap.to('.hero-title', {
     scrub: true
   }
 });
+
+// Enhanced form interactions
+document.querySelectorAll('.input-group input, .input-group textarea').forEach(input => {
+  input.addEventListener('focus', () => {
+    input.parentElement.classList.add('focused');
+  });
+  
+  input.addEventListener('blur', () => {
+    if (!input.value) {
+      input.parentElement.classList.remove('focused');
+    }
+  });
+  
+  // Auto-resize textarea
+  if (input.tagName === 'TEXTAREA') {
+    input.addEventListener('input', () => {
+      input.style.height = 'auto';
+      input.style.height = input.scrollHeight + 'px';
+    });
+  }
+});
+
+// Form submission with enhanced animation
+document.querySelector('.contact-form-premium').addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const btn = e.target.querySelector('.btn-contact');
+  const btnText = btn.querySelector('.btn-text');
+  const btnIcon = btn.querySelector('.btn-icon');
+  const originalText = btnText.textContent;
+  const originalIcon = btnIcon.textContent;
+  
+  // Sending state
+  btnText.textContent = 'Sending...';
+  btnIcon.textContent = '⏳';
+  btn.style.pointerEvents = 'none';
+  
+  gsap.to(btn, {
+    scale: 0.95,
+    duration: 0.1,
+    yoyo: true,
+    repeat: 1,
+    ease: 'power2.inOut',
+    onComplete: () => {
+      // Success state
+      setTimeout(() => {
+        btnText.textContent = 'Message Sent!';
+        btnIcon.textContent = '✅';
+        btn.style.background = 'linear-gradient(135deg, #34c759, #32d74b)';
+        
+        // Reset after 3 seconds
+        setTimeout(() => {
+          btnText.textContent = originalText;
+          btnIcon.textContent = originalIcon;
+          btn.style.background = '';
+          btn.style.pointerEvents = '';
+          e.target.reset();
+        }, 3000);
+      }, 1500);
+    }
+  });
+});
+document.querySelectorAll('button[data-url]').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    // Prevent form submission or other event interference
+    e.preventDefault();
+    // Get URL from attribute
+    var url = btn.getAttribute('data-url');
+    if (url) {
+      window.open(url, '_blank'); // open in a new tab
+    }
+  });
+});
+
